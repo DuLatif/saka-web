@@ -9,7 +9,8 @@ body {
     background-color: $primary-color;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: $dark-color;
 }
 
 a {
@@ -21,18 +22,69 @@ li {
     list-style-type: none;
 }
 
+button {
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 8px;
+    background-image: linear-gradient(-25deg , $first-color , $second-color);
+    box-shadow: 2px 2px 4px $first-color , -2px -2px 4px $second-color;
+    color: $light-color;
+    transition: .5s;
+
+    &:hover {
+        transform: scale(.9);
+        box-shadow: none;
+    }
+}
+
+section {
+    padding: 20px 80px;
+}
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .col {
     flex: 1;
 }
 
+.container {
+    padding: 40px 60px;
+}
 
+.heading {
+    text-transform: uppercase;
+    color: $primary-color;
+    text-shadow: -1px -1px 2px $light-color , 1px 1px 3px $medium-color;
+    font-size: 24px;
+    text-align: center;
+}
 
+.card-style {
+    text-align: center;
+    height: 240px;
+    width: 240px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px $medium-color , -5px -5px 10px $light-color;
+    margin: 20px auto;
+    
+    .card-img {
+        height: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card-subtitle {
+        font-size: 18px;
+    }
+}
 
 
 
@@ -42,18 +94,23 @@ li {
     top:0;
     left:0;
     right:0;
-    padding: 20px;
-    background-color: $medium-color;
+    padding: 4px;
+    padding-left: 10px;
+    background-color: $first-color;
     z-index: 1000000;
 
     ul {
-
+        text-align: right;
+        margin-right: 20px;
     }
     
     li {
         display: inline-block;
         text-transform: uppercase;
-        margin: 10px auto;
+        margin-right: 12px;
+        color: $light-color;
+        font-size: 15px;
+        font-weight: bold;
     }
 
 
@@ -79,5 +136,31 @@ li {
             text-transform: uppercase;
             font-size: 20px;
         }
+    }
+}
+
+
+
+// jumbotron 
+.jumbotron {
+    text-align: center;
+    padding: 80px 60px;
+    background-image: linear-gradient($first-color , $second-color);
+
+    img {
+        margin-bottom: 14px;
+    }
+
+    h1 {
+        text-transform: uppercase;
+    }
+    
+}
+
+
+// tentnag
+.tentang {
+    img {
+        margin: 20px auto;
     }
 }
