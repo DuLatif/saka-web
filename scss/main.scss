@@ -1,5 +1,9 @@
 @import 'var.scss';
 
+* {
+    border: 1pt solid $dark-color;
+    // box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
@@ -7,10 +11,11 @@ html {
 
 body {
     background-color: $primary-color;
-    margin: 0;
-    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: $dark-color;
+    // overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -50,6 +55,10 @@ section {
     align-items: center;
 }
 
+.footer .row {
+    align-items: baseline;
+}
+
 .col {
     flex: 1;
 }
@@ -62,7 +71,7 @@ section {
     text-transform: uppercase;
     color: $primary-color;
     text-shadow: -1px -1px 2px $light-color , 1px 1px 3px $medium-color;
-    font-size: 24px;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -113,32 +122,75 @@ section {
         font-weight: bold;
     }
 
+    .icon {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 5%;
+        top: 6px;
+        transition: .8s;
 
-    // sidbear
-    .sidebar {
-        position:fixed;
-        top:0;
-        bottom: 0;
-        left:0;
-        width: 240px;
-        background-color: $light-color;
-        z-index: 2000000;
-        box-sizing: border-box;
-        padding: 20px 10px;
-        display: none;
-
-        img {
-            margin-bottom: 20px;
+        :hover {
+            cursor: pointer;
         }
-
-        li {
-            display: block;
-            text-transform: uppercase;
-            font-size: 20px;
+        
+        span {
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            border-radius: 4px;
+            background-color: $light-color;
+            transition: .6s ease-in-out;
+        }
+    
+        span:nth-child(1) {
+            top: 3px;
+        }
+        span:nth-child(2) {
+            top: 14px;
+        }
+        span:nth-child(3) {
+            top:26px;
+        }
+    
+        &.open span:nth-child(1) {
+            top: 18px;
+            transform: rotate(-45deg);
+        }
+        &.open span:nth-child(2) {
+            transform: rotateX(-90deg);
+        }
+        &.open span:nth-child(3) {
+            top: 18px;
+            transform: rotate(45deg);
         }
     }
+
 }
 
+// sidbear
+.sidebar {
+    position:fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    width: 260px;
+    background-color: $light-color;
+    z-index: 2000000;
+    box-sizing: border-box;
+    transform: translateX(-270px) scaleX(.1);
+    
+    img {
+        margin-bottom: 20px;
+    }
+
+    li {
+        display: block;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: left;
+    }
+}
 
 
 // jumbotron 
@@ -160,7 +212,170 @@ section {
 
 // tentnag
 .tentang {
+    .col img {
+        display: flex;
+        justify-content:center;
+    }
+}
+
+
+
+
+// footer
+.footer    {
+    
     img {
+        display: block;
         margin: 20px auto;
+    }
+    
+    ul.sosmed-menu {
+        display: block;
+        width: 100%;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    .sosmed-item {
+        display: inline-block;
+        font-size: 28px;
+        color: white;
+        margin: 8px;
+        text-shadow: $shadow;
+        transition: .6s;
+    }
+
+    .sosmed-item:hover {
+        text-shadow:none;
+    }
+
+    .title-footer {
+        font-weight: 300;
+        text-transform: uppercase;
+        font-size: 22px;
+    }
+
+    .col ul {
+        margin-left: -40px;
+    }
+
+    footer {
+        position:relative;
+        padding: 10px;
+        margin-left: -61px;
+        margin-right: -61px;
+        text-align: center;
+        border-top: 2px solid $medium-color;
+    }
+}
+
+
+
+@media (max-width: 900px) {
+    .navbar {
+        ul {
+            display: none
+        }
+
+        .icon {
+            display: block;
+        }
+    }
+
+    .container {
+        padding: 0px;
+    }
+
+    .tentang p {
+        min-width: 300px;
+    }
+
+    .footer .row {
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 10px;
+
+        ul.sosmed-menu {
+            width: 80%;
+
+            .sosmed-item {
+                font-size: 18px;
+            }
+        }
+    }
+    
+    footer {
+        margin: 0px;
+        font-size: 12px;
+    }
+}
+
+
+.tentang p , .tentang img , .jurusan .card-style , .fasilitas .card-style {
+    opacity: 0;
+}
+
+
+// animasi
+
+@keyframes sidebarAppear {
+
+    60% {
+        transform: translateX(20px) scaleX(1.2);
+    }
+    
+    85% {
+        transform: translateX(-12px) scaleX(.97);
+    }
+
+    93% {
+        transform: translateX(6px) scaleX(1);
+    }
+    
+    100% {
+        transform: translateX(0px) scaleX(1);
+    }
+}
+@keyframes sidebarHidden {
+    0% {
+        transform: translateX(0px) scaleX(1);
+    }
+    
+    100% {
+        transform: translateX(-260px) ;
+    }
+}
+
+@keyframes landingLeft {
+    0% {
+        transform: translateX(-80px);
+        opacity: 0;
+    }
+
+    100% {
+        transfrom: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes landingRight {
+    0% {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+
+    100% {
+        transfrom: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes landingTop {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
     }
 }
