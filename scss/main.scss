@@ -1,9 +1,8 @@
 @import 'var.scss';
 
-* {
-    border: 1pt solid $dark-color;
-    // box-sizing: border-box;
-}
+// * {
+//     border: 1px solid black;
+// }
 
 html {
     scroll-behavior: smooth;
@@ -305,7 +304,7 @@ section {
     }
     
     footer {
-        margin: 0px;
+        width: 100%;
         font-size: 12px;
     }
 }

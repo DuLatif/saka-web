@@ -1,7 +1,3 @@
-* {
-  border: 1pt solid #22304a;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -315,7 +311,7 @@ section {
     font-size: 18px;
   }
   footer {
-    margin: 0px;
+    width: 100%;
     font-size: 12px;
   }
 }

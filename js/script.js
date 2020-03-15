@@ -20,14 +20,14 @@ icon.addEventListener('click' , () => {
 window.addEventListener('scroll' , () => {
     let lebarJendela = window.innerWidth;
     let wScroll = window.pageYOffset;
-
+    console.log(wScroll);
     const tentangKontent    = document.querySelector('.tentang p');
     const tentangImg        = document.querySelector('.tentang img');
     const jurusan           = document.querySelectorAll('.jurusan .card-style');
     const fasilitas         = document.querySelectorAll('.fasilitas .card-style');
     const footerImg         = document.querySelector('.footer .row img');
 
-    if(lebarJendela > 400) {
+    if(lebarJendela > 800) {
     
         
     } else {
